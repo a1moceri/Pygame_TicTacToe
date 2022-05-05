@@ -9,4 +9,4 @@ Run MAIN.py to start.
 
 ## Requirements 
 
-Python 3.0 and the Pygame Package installed. 
+Python 3.0 and the Pygame module installed. 

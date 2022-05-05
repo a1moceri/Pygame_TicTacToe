@@ -11,7 +11,7 @@ class BoardBasic:
         self.__y = 200
         self.__dis = 166
         self.__map = np.full((3, 3), -1)
-        self.__win = pygame.display.set_mode((500, 625))
+        self.__win = pygame.display.set_mode((500, 635))
         self.__i = 1
         self.__j = 1
         self.__move = 0
@@ -61,10 +61,10 @@ class BoardBasic:
         p1 = 'Player 1: ' + p1 + '(' + p1label + ')'
         p2 = 'Player 2: ' + p2 + '(' + p2label + ')'
 
-        font = pygame.font.SysFont('comicsans', 40)
+        font = pygame.font.SysFont('comicsans', 35)
         player1_name = font.render(p1, True, (255, 255, 255))
         player2_name = font.render(p2, True, (255, 255, 255))
-        self.__win.blit(player1_name, (5, 510))
+        self.__win.blit(player1_name, (5, 500))
         self.__win.blit(player2_name, (5, 540))
 
     def display_player_move(self, p1, p2):
@@ -74,7 +74,7 @@ class BoardBasic:
         else:
             message = p2.get_name() + "'s turn! " + '(' + p2.get_tic_tac_toe_label() + ')'
 
-        font = pygame.font.SysFont('comicsans', 55)
+        font = pygame.font.SysFont('comicsans', 40)
         move_message = font.render(message, True, (255, 0, 0))
         self.__win.blit(move_message, (22, 575))
 
@@ -190,7 +190,7 @@ class BoardBasic:
         pygame.draw.rect(self.__win, (255, 255, 255), (50, 120, 400, 250), width=5)
 
         # game over text
-        font = pygame.font.SysFont('comicsans', 40)
+        font = pygame.font.SysFont('comicsans', 30)
         g_o = 'GAME OVER'
         g_o_m = font.render(g_o, True, (255, 0, 0))
 
@@ -198,7 +198,7 @@ class BoardBasic:
             win_message = 'DRAW'
             draw = pygame.font.SysFont('comicsans', 75)
             w_m = draw.render(win_message, True, (0, 255, 0))
-            self.__win.blit(w_m, (170, 200))
+            self.__win.blit(w_m, (130, 180))
         else:
             win_message = 'THE WINNER IS:'
             winner_name = winner + '(' + label + ')'
@@ -206,16 +206,16 @@ class BoardBasic:
 
             w_m = font.render(win_message, True, (0, 255, 0))
             w_n = font.render(winner_name, True, (0, 255, 0))
-            self.__win.blit(w_m, (133, 200))
+            self.__win.blit(w_m, (128, 200))
             self.__win.blit(w_n, (s_p, 240))
 
         # print game over
-        self.__win.blit(g_o_m, (165, 150))
+        self.__win.blit(g_o_m, (160, 150))
 
         # Quit message
         quit_message = "PRESS 'SPACE' TO QUIT"
         qm = font.render(quit_message, True, (0, 0, 255))
-        self.__win.blit(qm, (90, 300))
+        self.__win.blit(qm, (62, 280))
         keys = pygame.key.get_pressed()
         if keys[pygame.K_SPACE]:
             pygame.quit()
